@@ -17,6 +17,7 @@ Environment variables (place in .env):
 import os
 import sys
 from collections import defaultdict
+from pathlib import Path
 
 import requests
 from dotenv import load_dotenv
@@ -26,7 +27,8 @@ from tabulate import tabulate
 # Configuration
 # ---------------------------------------------------------------------------
 
-load_dotenv()
+# Load .env from the project root (one level up from this script's folder)
+load_dotenv(Path(__file__).resolve().parent.parent / ".env")
 
 ACCESS_KEY = os.getenv("PC_ACCESS_KEY")
 SECRET_KEY = os.getenv("PC_SECRET_KEY")
